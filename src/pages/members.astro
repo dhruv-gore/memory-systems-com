@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const members = [
+	{
+		name: "Dr. Elena Rostova",
+		role: "Principal Investigator",
+		bio: "Elena leads the group with over 15 years of experience in computational neuroscience.",
+		image: "https://ui-avatars.com/api/?name=Elena+Rostova&background=random&size=200"
+	},
+	{
+		name: "James Chen",
+		role: "PhD Candidate",
+		bio: "James focuses on reinforcement learning and memory replay mechanisms.",
+		image: "https://ui-avatars.com/api/?name=James+Chen&background=random&size=200"
+	},
+	{
+		name: "Sarah Miller",
+		role: "Research Engineer",
+		bio: "Sarah builds the infrastructure that powers our large-scale simulations.",
+		image: "https://ui-avatars.com/api/?name=Sarah+Miller&background=random&size=200"
+	}
+];
+---
+
+<Layout title="Members">
+	<div class="max-w-5xl mx-auto">
+		<h1 class="text-4xl font-bold mb-2">Our Team</h1>
+		<p class="text-xl text-gray-500 mb-12">Meet the people behind the research.</p>
+
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+			{members.map((member) => (
+				<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition group">
+					<div class="h-24 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+					<div class="px-6 pb-6 -mt-12 relative">
+						<img 
+							src={member.image} 
+							alt={member.name} 
+							class="w-24 h-24 rounded-full border-4 border-white shadow-md mb-4 bg-white"
+						/>
+						<h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition">{member.name}</h3>
+						<p class="text-indigo-600 font-medium text-sm mb-3">{member.role}</p>
+						<p class="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</Layout>
