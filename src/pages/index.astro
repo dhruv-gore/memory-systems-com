@@ -1,65 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allNotes = (await getCollection('notes')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const recentNotes = allNotes.slice(0, 3);
 ---
 
-<Layout title="Home">
-	<!-- Hero Section -->
-	<section class="min-h-[80vh] flex flex-col justify-center max-w-5xl">
-		<div class="space-y-2 opacity-0 animate-fade-in-up [animation-delay:200ms]">
-			<span class="text-red-600 font-mono text-xs uppercase tracking-widest pl-1">Memory Systems Group</span>
-			<h1 class="text-7xl md:text-8xl lg:text-9xl font-serif italic text-stone-900 leading-[0.9] tracking-tighter">
-				The Architecture <br /> of <span class="text-red-700">Remembrance.</span>
-			</h1>
-		</div>
-		
-		<div class="mt-12 md:mt-20 max-w-lg md:ml-auto opacity-0 animate-fade-in-up [animation-delay:600ms]">
-			<p class="text-lg md:text-xl text-stone-600 leading-relaxed font-light">
-				We investigate the fundamental principles of storage and retrieval across biological circuits, artificial intelligence, and collective human history.
-			</p>
-			
-			<div class="mt-10 flex gap-8 items-center">
-				<a href="/research" class="group flex items-center gap-2 text-stone-900 border-b border-stone-300 pb-1 hover:border-red-600 hover:text-red-700 transition-all duration-300">
-					Explore Research
-					<span class="group-hover:translate-x-1 transition-transform">→</span>
-				</a>
-			</div>
-		</div>
+<Layout title="Index">
+	<section class="mb-16">
+		<h1 class="font-serif text-4xl md:text-5xl italic text-stone-900 mb-6 leading-tight">
+			A forum for the study of <span class="text-red-700">memory</span> in all its forms.
+		</h1>
+		<p class="text-stone-600 leading-relaxed max-w-lg">
+			We are a small group of researchers and enthusiasts exploring how information persists in biological brains, artificial networks, and human societies.
+		</p>
 	</section>
 
-	<!-- Minimal Grid Section -->
-	<section class="py-32 border-t border-stone-100">
-		<div class="grid md:grid-cols-3 gap-12 md:gap-8">
-			
-			<!-- Card 1 -->
-			<div class="group cursor-pointer">
-				<div class="h-px w-full bg-red-100 mb-6 group-hover:bg-red-500 transition-colors duration-500"></div>
-				<span class="font-mono text-xs text-stone-400 mb-2 block">01</span>
-				<h3 class="text-3xl font-serif italic mb-4 text-stone-800 group-hover:text-red-700 transition-colors">Biological</h3>
-				<p class="text-stone-500 font-light leading-relaxed">
-					Mapping neural engrams and the physical trace of memory in the hippocampus and cortex.
-				</p>
-			</div>
+	<section>
+		<div class="flex items-baseline justify-between mb-8 border-b border-stone-200 pb-2">
+			<h2 class="font-mono text-xs uppercase tracking-widest text-stone-400">Recent Notes</h2>
+			<a href="/notes" class="text-xs font-mono text-red-700 hover:text-red-800 transition-colors">View all →</a>
+		</div>
 
-			<!-- Card 2 -->
-			<div class="group cursor-pointer">
-				<div class="h-px w-full bg-red-100 mb-6 group-hover:bg-red-500 transition-colors duration-500"></div>
-				<span class="font-mono text-xs text-stone-400 mb-2 block">02</span>
-				<h3 class="text-3xl font-serif italic mb-4 text-stone-800 group-hover:text-red-700 transition-colors">Artificial</h3>
-				<p class="text-stone-500 font-light leading-relaxed">
-					Engineering persistent memory architectures for large language models and autonomous agents.
-				</p>
-			</div>
-
-			<!-- Card 3 -->
-			<div class="group cursor-pointer">
-				<div class="h-px w-full bg-red-100 mb-6 group-hover:bg-red-500 transition-colors duration-500"></div>
-				<span class="font-mono text-xs text-stone-400 mb-2 block">03</span>
-				<h3 class="text-3xl font-serif italic mb-4 text-stone-800 group-hover:text-red-700 transition-colors">Collective</h3>
-				<p class="text-stone-500 font-light leading-relaxed">
-					Understanding the sociology of forgetting and the digital preservation of human culture.
-				</p>
-			</div>
-
+		<div class="space-y-8">
+			{recentNotes.map((note) => (
+				<article class="group">
+					<a href={`/notes/${note.slug}`} class="block">
+						<div class="flex flex-col md:flex-row md:items-baseline justify-between gap-2 mb-1">
+							<h3 class="font-serif text-xl text-stone-900 group-hover:text-red-700 transition-colors">
+								{note.data.title}
+							</h3>
+							<time datetime={note.data.pubDate.toISOString()} class="font-mono text-xs text-stone-400 shrink-0">
+								{note.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+							</time>
+						</div>
+						<p class="text-sm text-stone-500 line-clamp-2 leading-relaxed max-w-xl">
+							{note.data.description}
+						</p>
+					</a>
+				</article>
+			))}
 		</div>
 	</section>
 </Layout>

@@ -6,7 +6,7 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = "Memory Systems Group - Exploring the frontiers of memory research." } = Astro.props;
+const { title, description = "Memory Systems Group - Notes and discussions." } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,89 +18,41 @@ const { title, description = "Memory Systems Group - Exploring the frontiers of 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		
-		<!-- Google Fonts: Cormorant Garamond (Display) & Manrope (Body) -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 		
-		<title>{title} | Memory Systems Group</title>
+		<title>{title} | Memory Systems</title>
 	</head>
 	<body class="bg-[#FDFCFB] text-[#2D2A2A] min-h-screen flex flex-col selection:bg-red-200 selection:text-red-900 font-sans antialiased overflow-x-hidden">
-		<!-- Subtle Grain Texture Overlay -->
+		<!-- Subtle Grain -->
 		<div class="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-multiply z-50 bg-repeat" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
 
-		<header class="fixed top-0 w-full z-40 bg-[#FDFCFB]/80 backdrop-blur-md border-b border-stone-200/50 transition-all duration-500" id="navbar">
-			<nav class="container mx-auto px-6 py-6 flex justify-between items-baseline">
-				<a href="/" class="group relative z-50">
-					<span class="font-serif text-2xl tracking-tighter italic font-semibold text-red-700 group-hover:text-red-600 transition-colors">
+		<header class="w-full z-40 pt-8 pb-4">
+			<nav class="container mx-auto px-6 max-w-3xl flex justify-between items-baseline border-b border-stone-200 pb-4">
+				<a href="/" class="group">
+					<span class="font-serif text-xl italic font-semibold text-stone-900 hover:text-red-700 transition-colors">
 						Memory Systems.
 					</span>
 				</a>
 				
-				<!-- Desktop Menu -->
-				<ul class="hidden md:flex space-x-12 text-sm font-medium tracking-wide">
-					<li><a href="/about" class="hover:text-red-700 transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-red-700 after:transition-all hover:after:w-full">About</a></li>
-					<li><a href="/research" class="hover:text-red-700 transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-red-700 after:transition-all hover:after:w-full">Research</a></li>
-					<li><a href="/members" class="hover:text-red-700 transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-red-700 after:transition-all hover:after:w-full">Members</a></li>
-					<li><a href="/join" class="text-red-700 hover:text-red-800 transition-colors">Join →</a></li>
+				<ul class="flex space-x-6 text-sm font-medium tracking-wide">
+					<li><a href="/" class="hover:text-red-700 transition-colors">Index</a></li>
+					<li><a href="/notes" class="hover:text-red-700 transition-colors">Notes</a></li>
+					<li><a href="/join" class="text-stone-500 hover:text-red-700 transition-colors">Join</a></li>
 				</ul>
-
-				<!-- Mobile Menu Button -->
-				<button id="mobile-menu-btn" class="md:hidden z-50 group space-y-1.5 focus:outline-none">
-					<span class="block w-6 h-px bg-stone-800 group-hover:bg-red-700 transition-colors"></span>
-					<span class="block w-4 h-px bg-stone-800 group-hover:bg-red-700 transition-colors ml-auto"></span>
-					<span class="block w-6 h-px bg-stone-800 group-hover:bg-red-700 transition-colors"></span>
-				</button>
 			</nav>
-
-			<!-- Mobile Menu Overlay -->
-			<div id="mobile-menu" class="fixed inset-0 bg-[#FDFCFB] z-40 flex flex-col justify-center items-center opacity-0 pointer-events-none transition-opacity duration-500">
-				<ul class="flex flex-col space-y-8 text-center font-serif text-3xl italic text-stone-800">
-					<li><a href="/" class="hover:text-red-600 transition-colors">Home</a></li>
-					<li><a href="/about" class="hover:text-red-600 transition-colors">About</a></li>
-					<li><a href="/research" class="hover:text-red-600 transition-colors">Research</a></li>
-					<li><a href="/members" class="hover:text-red-600 transition-colors">Members</a></li>
-					<li><a href="/join" class="text-red-600">Join Us</a></li>
-				</ul>
-			</div>
 		</header>
 
-		<main class="flex-grow pt-32 pb-20 px-6 container mx-auto">
+		<main class="flex-grow px-6 container mx-auto max-w-3xl py-12">
 			<slot />
 		</main>
 
-		<footer class="border-t border-red-100 mt-auto bg-[#FAFAFA]">
-			<div class="container mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-				<div>
-					<h3 class="font-serif text-xl italic text-stone-900 mb-2">Memory Systems Group</h3>
-					<p class="text-xs text-stone-500 uppercase tracking-widest max-w-xs">
-						Advancing the understanding of memory in<br/>biological and artificial systems.
-					</p>
-				</div>
-				<div class="flex flex-col md:items-end gap-2 text-sm text-stone-600">
-					<a href="mailto:contact@memory-systems.com" class="hover:text-red-700 transition-colors">contact@memory-systems.com</a>
-					<span class="text-stone-400 text-xs">&copy; {new Date().getFullYear()}</span>
-				</div>
+		<footer class="mt-auto py-8">
+			<div class="container mx-auto px-6 max-w-3xl border-t border-stone-100 pt-6 flex justify-between items-center text-xs text-stone-400">
+				<span>&copy; {new Date().getFullYear()} Memory Systems Group</span>
+				<a href="mailto:contact@memory-systems.com" class="hover:text-stone-600">Contact</a>
 			</div>
 		</footer>
-
-		<script>
-			const btn = document.getElementById('mobile-menu-btn');
-			const menu = document.getElementById('mobile-menu');
-			let isMenuOpen = false;
-
-			btn?.addEventListener('click', () => {
-				isMenuOpen = !isMenuOpen;
-				if (isMenuOpen) {
-					menu?.classList.remove('opacity-0', 'pointer-events-none');
-					menu?.classList.add('opacity-100', 'pointer-events-auto');
-					document.body.style.overflow = 'hidden';
-				} else {
-					menu?.classList.remove('opacity-100', 'pointer-events-auto');
-					menu?.classList.add('opacity-0', 'pointer-events-none');
-					document.body.style.overflow = '';
-				}
-			});
-		</script>
 	</body>
 </html>

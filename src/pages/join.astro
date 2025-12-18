@@ -3,35 +3,26 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Join">
-	<div class="min-h-[60vh] flex flex-col items-center pt-20">
-		<div class="max-w-2xl w-full opacity-0 animate-fade-in-up">
-			<h1 class="text-5xl md:text-7xl font-serif italic text-stone-900 text-center mb-6">
-				Connect
-			</h1>
-			<p class="text-stone-500 text-center font-light mb-16 text-lg">
-				We are always seeking new minds to expand our memory.
+	<div class="max-w-xl mx-auto">
+		<header class="mb-8">
+			<h1 class="font-serif text-3xl italic text-stone-900 mb-4">Join the Group</h1>
+			<p class="text-stone-600 font-light">
+				We are always looking for curious minds to join our discussions. Fill out the form below to get notified about upcoming meetups.
 			</p>
+		</header>
 
-			<div class="relative">
-				<!-- Decorative corners -->
-				<div class="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-red-200"></div>
-				<div class="absolute -top-4 -right-4 w-8 h-8 border-t border-r border-red-200"></div>
-				<div class="absolute -bottom-4 -left-4 w-8 h-8 border-b border-l border-red-200"></div>
-				<div class="absolute -bottom-4 -right-4 w-8 h-8 border-b border-r border-red-200"></div>
-
-				<iframe 
-					data-tally-src="https://tally.so/embed/w7KEWZ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-					loading="lazy" 
-					width="100%" 
-					height="400" 
-					frameborder="0" 
-					marginheight="0" 
-					marginwidth="0" 
-					title="Join Memory Systems Group"
-					class="grayscale hover:grayscale-0 transition-all duration-700"
-				>
-				</iframe>
-			</div>
+		<div class="bg-white p-1 shadow-sm border border-stone-100 rounded">
+			<iframe 
+				data-tally-src="https://tally.so/embed/w7KEWZ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+				loading="lazy" 
+				width="100%" 
+				height="400" 
+				frameborder="0" 
+				marginheight="0" 
+				marginwidth="0" 
+				title="Join Memory Systems Group"
+			>
+			</iframe>
 		</div>
 	</div>
 
