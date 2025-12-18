@@ -2,32 +2,48 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="About Us">
-	<div class="max-w-3xl mx-auto">
-		<h1 class="text-4xl font-bold mb-8">About Memory Systems Group</h1>
-		
-		<div class="prose prose-lg text-gray-600">
-			<p class="mb-6">
-				The Memory Systems Group was founded with a singular vision: to bridge the gap between biological understanding and artificial implementation of memory.
-			</p>
-			
-			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Our Mission</h2>
-			<p class="mb-6">
-				Memory is the foundation of identity, learning, and culture. By studying memory across different substrates—neurons, silicon, and society—we aim to uncover universal principles that can lead to better AI, treatments for memory disorders, and more resilient information systems.
-			</p>
+<Layout title="About">
+	<div class="max-w-4xl mx-auto pt-10 md:pt-20">
+		<header class="mb-20 opacity-0 animate-fade-in-up">
+			<h1 class="text-6xl md:text-8xl font-serif italic text-stone-900 mb-8 tracking-tight">
+				Bridging Substrates.
+			</h1>
+			<div class="h-px w-20 bg-red-600"></div>
+		</header>
 
-			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">What We Do</h2>
-			<ul class="list-disc pl-6 space-y-2 mb-6">
-				<li>Conduct interdisciplinary research combining neuroscience, computer science, and psychology.</li>
-				<li>Develop open-source tools for memory research and analysis.</li>
-				<li>Host workshops and seminars to foster collaboration.</li>
-				<li>Publish findings in top-tier journals and conferences.</li>
-			</ul>
+		<div class="grid md:grid-cols-[1fr_2fr] gap-12 opacity-0 animate-fade-in-up [animation-delay:200ms]">
+			<div class="font-mono text-xs text-stone-400 uppercase tracking-widest sticky top-32 h-fit">
+				Mission Statement
+			</div>
+			<div class="prose prose-lg prose-stone prose-headings:font-serif prose-headings:font-normal prose-a:text-red-700 hover:prose-a:text-red-800">
+				<p class="text-xl md:text-2xl font-light leading-relaxed text-stone-800 mb-12">
+					Memory is the foundation of identity. It is the thread that stitches moments into a life, and data into knowledge.
+				</p>
+				
+				<p>
+					The Memory Systems Group was founded to explore a singular, provocative question: <em class="text-stone-900">Are the principles of memory universal?</em>
+				</p>
+				
+				<p>
+					We operate at the intersection of wetware and software. By studying how biological neurons encode time and space, we derive new architectures for silicon-based intelligence. Conversely, by stress-testing artificial memory systems, we gain fresh intuition about the limitations and capabilities of the human mind.
+				</p>
 
-			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Join Our Community</h2>
-			<p>
-				We are always looking for passionate individuals to join our cause. Whether you are a student, a seasoned researcher, or just curious, there is a place for you here.
-			</p>
+				<h3 class="text-3xl italic text-stone-900 mt-16 mb-6">Our Methodology</h3>
+				<ul class="list-none pl-0 space-y-6">
+					<li class="flex gap-4 items-baseline">
+						<span class="text-red-600 font-serif italic text-lg">01.</span>
+						<span><strong>Interdisciplinary Synthesis.</strong> We don't just collaborate; we merge fields. Our team speaks Python and Pyramidal cells fluently.</span>
+					</li>
+					<li class="flex gap-4 items-baseline">
+						<span class="text-red-600 font-serif italic text-lg">02.</span>
+						<span><strong>Open Science.</strong> We believe knowledge grows when shared. Our datasets, models, and tools are open-source by default.</span>
+					</li>
+					<li class="flex gap-4 items-baseline">
+						<span class="text-red-600 font-serif italic text-lg">03.</span>
+						<span><strong>Rigorous Speculation.</strong> We tackle high-risk, high-reward problems that traditional labs might shy away from.</span>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </Layout>

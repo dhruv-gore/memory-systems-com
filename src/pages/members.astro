@@ -5,42 +5,55 @@ const members = [
 	{
 		name: "Dr. Elena Rostova",
 		role: "Principal Investigator",
-		bio: "Elena leads the group with over 15 years of experience in computational neuroscience.",
-		image: "https://ui-avatars.com/api/?name=Elena+Rostova&background=random&size=200"
+		specialty: "Computational Neuroscience",
+		image: "https://ui-avatars.com/api/?name=Elena+Rostova&background=fca5a5&color=7f1d1d"
 	},
 	{
 		name: "James Chen",
 		role: "PhD Candidate",
-		bio: "James focuses on reinforcement learning and memory replay mechanisms.",
-		image: "https://ui-avatars.com/api/?name=James+Chen&background=random&size=200"
+		specialty: "Reinforcement Learning",
+		image: "https://ui-avatars.com/api/?name=James+Chen&background=e7e5e4&color=292524"
 	},
 	{
 		name: "Sarah Miller",
 		role: "Research Engineer",
-		bio: "Sarah builds the infrastructure that powers our large-scale simulations.",
-		image: "https://ui-avatars.com/api/?name=Sarah+Miller&background=random&size=200"
+		specialty: "Systems Architecture",
+		image: "https://ui-avatars.com/api/?name=Sarah+Miller&background=e7e5e4&color=292524"
 	}
 ];
 ---
 
 <Layout title="Members">
-	<div class="max-w-5xl mx-auto">
-		<h1 class="text-4xl font-bold mb-2">Our Team</h1>
-		<p class="text-xl text-gray-500 mb-12">Meet the people behind the research.</p>
+	<div class="pt-10 md:pt-20 max-w-6xl mx-auto">
+		<header class="mb-20 opacity-0 animate-fade-in-up">
+			<h1 class="text-6xl md:text-8xl font-serif italic text-stone-900 mb-8 tracking-tight">
+				The Collective
+			</h1>
+		</header>
 
-		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+		<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 opacity-0 animate-fade-in-up [animation-delay:200ms]">
 			{members.map((member) => (
-				<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition group">
-					<div class="h-24 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
-					<div class="px-6 pb-6 -mt-12 relative">
+				<div class="group relative">
+					<div class="aspect-[4/5] bg-stone-100 mb-6 overflow-hidden relative">
 						<img 
 							src={member.image} 
 							alt={member.name} 
-							class="w-24 h-24 rounded-full border-4 border-white shadow-md mb-4 bg-white"
+							class="w-full h-full object-cover filter grayscale contrast-125 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-700 ease-in-out mix-blend-multiply"
 						/>
-						<h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition">{member.name}</h3>
-						<p class="text-indigo-600 font-medium text-sm mb-3">{member.role}</p>
-						<p class="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
+						<div class="absolute inset-0 bg-red-900/0 group-hover:bg-red-900/5 transition-colors duration-500"></div>
+					</div>
+					
+					<h3 class="text-2xl font-serif text-stone-900 border-b border-transparent group-hover:border-red-600 inline-block transition-all duration-300">
+						{member.name}
+					</h3>
+					
+					<div class="flex justify-between items-end mt-2">
+						<span class="font-mono text-xs uppercase tracking-widest text-red-700">
+							{member.role}
+						</span>
+						<span class="text-sm text-stone-400 font-light italic">
+							{member.specialty}
+						</span>
 					</div>
 				</div>
 			))}

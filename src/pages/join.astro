@@ -2,34 +2,41 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Join Us">
-	<div class="max-w-2xl mx-auto">
-		<div class="text-center mb-10">
-			<h1 class="text-4xl font-bold mb-4">Join the Group</h1>
-			<p class="text-gray-600">
-				Interested in our research? Fill out the form below to get in touch or apply for membership.
+<Layout title="Join">
+	<div class="min-h-[60vh] flex flex-col items-center pt-20">
+		<div class="max-w-2xl w-full opacity-0 animate-fade-in-up">
+			<h1 class="text-5xl md:text-7xl font-serif italic text-stone-900 text-center mb-6">
+				Connect
+			</h1>
+			<p class="text-stone-500 text-center font-light mb-16 text-lg">
+				We are always seeking new minds to expand our memory.
 			</p>
-		</div>
 
-		<div class="bg-white p-1 rounded-xl shadow-sm border border-gray-100">
-			<!-- Tally Embed Code -->
-			<!-- Replace 'w7KEWZ' with your actual Tally form ID -->
-			<iframe 
-				data-tally-src="https://tally.so/embed/w7KEWZ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-				loading="lazy" 
-				width="100%" 
-				height="500" 
-				frameborder="0" 
-				marginheight="0" 
-				marginwidth="0" 
-				title="Join Memory Systems Group">
-			</iframe>
-		</div>
+			<div class="relative">
+				<!-- Decorative corners -->
+				<div class="absolute -top-4 -left-4 w-8 h-8 border-t border-l border-red-200"></div>
+				<div class="absolute -top-4 -right-4 w-8 h-8 border-t border-r border-red-200"></div>
+				<div class="absolute -bottom-4 -left-4 w-8 h-8 border-b border-l border-red-200"></div>
+				<div class="absolute -bottom-4 -right-4 w-8 h-8 border-b border-r border-red-200"></div>
 
-		<script>
-			// Tally Embed Script
-			// @ts-ignore
-			var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]'))v();else{var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
-		</script>
+				<iframe 
+					data-tally-src="https://tally.so/embed/w7KEWZ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+					loading="lazy" 
+					width="100%" 
+					height="400" 
+					frameborder="0" 
+					marginheight="0" 
+					marginwidth="0" 
+					title="Join Memory Systems Group"
+					class="grayscale hover:grayscale-0 transition-all duration-700"
+				>
+				</iframe>
+			</div>
+		</div>
 	</div>
+
+	<script>
+		// @ts-ignore
+		var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]'))v();else{var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+	</script>
 </Layout>
