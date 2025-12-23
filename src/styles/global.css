@@ -1,38 +1,21 @@
 @import "tailwindcss";
 
 @theme {
-  --font-serif: 'Cormorant Garamond', serif;
-  --font-sans: 'Manrope', sans-serif;
-  
-  --color-red-50: #FEF2F2;
-  --color-red-100: #FEE2E2;
-  --color-red-200: #FECACA;
-  --color-red-300: #FCA5A5;
-  --color-red-400: #F87171;
-  --color-red-500: #EF4444;
-  --color-red-600: #DC2626;
-  --color-red-700: #B91C1C;
-  --color-red-800: #991B1B;
-  --color-red-900: #7F1D1D;
-  
-  --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-fade-in: fadeIn 1.2s ease-out forwards;
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  --font-serif: 'Inter', sans-serif;
+  /* Utilizing Inter as the main font */
+  --font-sans: 'Inter', sans-serif;
+
+  --color-obsidian-bg: #1e1e1e;
+  /* Example dark mode base if needed later */
+  --color-obsidian-text: #2e2e2e;
+  --color-obsidian-accent: #7c3aed;
+  /* Violet accent reminiscent of some themes */
 
   @keyframes fadeIn {
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -41,11 +24,79 @@
 
 /* Custom Base Styles */
 body {
-  font-feature-settings: "ss01", "ss02", "kern";
+  font-feature-settings: "rlig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 400; /* Let the font shine */
+@layer components {
+
+  /* Obsidian-like Typography */
+  .prose {
+    @apply text-stone-800 leading-normal;
+
+    /* Headings */
+    :where(h1, h2, h3, h4, h5, h6) {
+      @apply font-sans font-bold text-stone-900 scroll-mt-20;
+    }
+
+    :where(h1) {
+      @apply text-3xl mb-6 mt-2 border-b border-stone-200 pb-2;
+    }
+
+    :where(h2) {
+      @apply text-2xl mb-4 mt-10;
+    }
+
+    :where(h3) {
+      @apply text-xl mb-3 mt-6;
+    }
+
+    /* Body Text */
+    :where(p) {
+      @apply mb-4 text-base/7;
+    }
+
+    :where(strong) {
+      @apply font-bold text-stone-950;
+    }
+
+    /* Links e.g. internal links style */
+    :where(a) {
+      @apply text-violet-700 no-underline hover:underline decoration-2 underline-offset-2 transition-all;
+    }
+
+    /* Blockquotes - Obsidian style */
+    :where(blockquote) {
+      @apply not-italic border-l-4 border-violet-500 pl-4 py-1 my-6 text-stone-600;
+
+      p {
+        @apply m-0;
+      }
+    }
+
+    /* Lists */
+    :where(ul, ol) {
+      @apply my-4 pl-6;
+
+      li {
+        @apply mb-1 pl-1 marker:text-stone-400;
+      }
+    }
+
+    /* Images */
+    :where(img) {
+      @apply rounded-lg my-6 w-full;
+    }
+
+    /* Horizontal Rule */
+    :where(hr) {
+      @apply border-stone-200 my-8;
+    }
+
+    /* Code Blocks */
+    :where(.expressive-code) {
+      @apply my-6 rounded-md overflow-hidden border border-stone-200;
+    }
+  }
 }
