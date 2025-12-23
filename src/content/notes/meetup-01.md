@@ -1,7 +1,7 @@
 ---
 title: "Cards Worth Keeping"
 description: "A Memory Systems Meetup recap under Chatham House rules exploring what happens after the spaced repetition honeymoon period ends."
-pubDate: 2024-12-10
+pubDate: 2025-11-29
 tags: ["meetup", "spaced-repetition", "memory-systems"]
 ---
 
